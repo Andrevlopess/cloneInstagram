@@ -2,11 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {  } from "@react-navigation/material-bottom-tabs";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/AntDesign';
 import { Home } from './src/Screens/Home';
 import Explore from './src/Screens/Explore';
 import NewPost from './src/Screens/NewPost';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Reels from './src/Screens/Reels';
+import Account from './src/Screens/Account';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,12 +37,11 @@ export default function App() {
           }} />
         <Tab.Screen
           name="Explore"
-
           component={Explore}
           options={{
             
             tabBarIcon: () => (
-              <Icon name="search" size={25} color='#fff' />
+              <Icon name="search1" size={25} color='#fff' />
             )
           }} />
         <Tab.Screen
@@ -52,16 +53,25 @@ export default function App() {
               <Icon name="plus" size={25} color='#fff' />
             )
           }} />
+        <Tab.Screen
+          name="Reels"
+          component={Reels}
+          options={{
+            tabBarLabel: '',
+            tabBarIcon: () => (
+              <Icon name="inbox" size={25} color='#fff' />
+            )
+          }} />
+        <Tab.Screen
+          name="Account"
+          component={Account}
+          options={{
+            tabBarLabel: '',
+            tabBarIcon: () => (
+              <Icon name="user" size={25} color='#fff' />
+            )
+          }} />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
